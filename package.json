@@ -1,0 +1,10 @@
+{
+  "name": "@modulator/core",
+  "version": "1.0.5",
+  "main": "moduleLoader.js",
+  "types": "moduleLoader.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  }
+} 
