@@ -14,5 +14,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventBus = exports.container = void 0;
 __exportStar(require("./loaders/moduleLoader"), exports);
 __exportStar(require("./types"), exports);
+var container_1 = require("./di/container");
+Object.defineProperty(exports, "container", { enumerable: true, get: function () { return container_1.container; } });
+var eventBus_1 = require("./events/eventBus");
+Object.defineProperty(exports, "EventBus", { enumerable: true, get: function () { return eventBus_1.EventBus; } });
