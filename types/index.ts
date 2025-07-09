@@ -39,6 +39,12 @@ export interface NodesmithModuleHooks {
   registerModels?(orm: any): void;
 
   /**
+   * Register event listeners/handlers for this module.
+   * Receives the event bus instance.
+   */
+  registerEvents?(eventBus: any): void;
+
+  /**
    * Called when the app (or module) is shutting down. Used for cleanup (optional)
    */
   onShutdown?(): Promise<void> | void;
