@@ -36,12 +36,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadEnabledModules = loadEnabledModules;
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
-const paths_1 = require("cli/utils/paths");
 // Loads enabled modules based on config/modules.json
 function loadEnabledModules() {
     // Always resolve relative to the user's project root
-    const configPath = paths_1.CONFIG_PATH;
-    const modulesDir = paths_1.MODULES_DIR;
+    const configPath = path.join(process.cwd(), 'config', 'modules.json');
+    const modulesDir = path.join(process.cwd(), 'modules');
     if (!fs.existsSync(configPath)) {
         throw new Error('modules.json config not found');
     }
