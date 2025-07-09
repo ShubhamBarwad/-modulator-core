@@ -44,11 +44,11 @@ const emailService = container.resolve<EmailService>('EmailService');
 
 A lightweight event bus for decoupled communication between modules.
 
-**Usage:**
+**Usage (with helper function):**
 ```typescript
-import { EventBus } from '@yourorg/core';
+import { getEventBus } from '@yourorg/core';
 
-const eventBus = new EventBus();
+const eventBus = getEventBus();
 
 // Listen for events
 eventBus.on('user.created', (user) => {
@@ -59,6 +59,7 @@ eventBus.on('user.created', (user) => {
 eventBus.emit('user.created', { id: 1, name: 'Alice' });
 ```
 
+- Use the `getEventBus()` helper to access the singleton EventBus instance from the DI container in a single step.
 - Register and remove event handlers.
 - Emit events with arbitrary payloads.
 
