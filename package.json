@@ -1,6 +1,6 @@
 {
   "name": "@modulator/core",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "moduleLoader.js",
   "types": "moduleLoader.d.ts",
   "license": "MIT",
