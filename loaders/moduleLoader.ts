@@ -1,11 +1,13 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { ModuleManifest, LoadedModule } from '../types';
+import { CONFIG_PATH, MODULES_DIR } from 'cli/utils/paths';
 
 // Loads enabled modules based on config/modules.json
 export function loadEnabledModules(): LoadedModule[] {
-  const configPath = path.join(__dirname, '../../config/modules.json');
-  const modulesDir = path.join(__dirname, '../../modules');
+  // Always resolve relative to the user's project root
+  const configPath = CONFIG_PATH;
+  const modulesDir = MODULES_DIR;
 
   if (!fs.existsSync(configPath)) {
     throw new Error('modules.json config not found');
