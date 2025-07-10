@@ -6,9 +6,8 @@ export interface ModuleManifest {
   author?: string;
   dependencies?: string[];
   migrations?: string[];
-  routes?: string[];
   models?: string[];
-  entry?: string;
+  // Note: routes are now auto-discovered and do not need to be listed here.
 }
 
 // Type for loaded module info
@@ -18,34 +17,4 @@ export interface LoadedModule {
   modulePath: string;
 }
 
-// Module hooks interface for all modules in the framework (no metadata)
-export interface NodesmithModuleHooks {
-  /**
-   * Called when the module is loaded. Used for setup logic.
-   * Receives the main app instance and module-specific config.
-   */
-  init?(app: any, config: any): Promise<void> | void;
-
-  /**
-   * Register HTTP routes/controllers for this module (optional)
-   * Receives the main router instance.
-   */
-  registerRoutes?(router: any): void;
-
-  /**
-   * Register database models/schemas for this module (optional)
-   * Receives the ORM or schema manager instance.
-   */
-  registerModels?(orm: any): void;
-
-  /**
-   * Register event listeners/handlers for this module.
-   * Receives the event bus instance.
-   */
-  registerEvents?(eventBus: any): void;
-
-  /**
-   * Called when the app (or module) is shutting down. Used for cleanup (optional)
-   */
-  onShutdown?(): Promise<void> | void;
-} 
+ 
